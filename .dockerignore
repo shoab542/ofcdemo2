@@ -1,0 +1,13 @@
+# These files will not be added to containers.
+.dockerignore
+.git
+.gitignore
+docker-compose.yml
+# dockerignore different than gitignore **/* is the full wildcard match
+**/*Dockerfile*
+**/*node_modules/*
+
+**/*google_creds.json*
+**/*local_settings.py*
+**/*.md*
+!README*.md

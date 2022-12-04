@@ -1,0 +1,15 @@
+//
+// lightbox.scss
+//
+
+.ReactModal__Body--open {
+    overflow: hidden;
+    .ReactModalPortal {
+        & > div {
+            z-index: 1002 !important;
+        }
+        .ril__toolbar {
+            background: transparent !important;
+        }
+    }
+}
