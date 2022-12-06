@@ -13,11 +13,140 @@ body {
 
 
 // Forms
-label {
-    font-weight: $label-font-weight;
+
+*:-webkit-autofill,
+*:-webkit-autofill:hover,
+*:-webkit-autofill:focus,
+*:-webkit-autofill:active {
+    /* use animation hack, if you have hard styled input */
+    transition: all 5000s ease-in-out 0s;
+    transition-property: background-color, color;
+    /* if input has one color, and didn't have bg-image use shadow */
+  background-color: #fff;
+    /* text color */
+    -webkit-text-fill-color: rgb(0, 0, 0);
 }
+
+
+.in{
+    background: #fff !important;
+    width: 370px;
+    height: 79px;
+}
+
+form{
+
+    label {
+        font-weight: $label-font-weight;
+        background: #fff;
+    }
+     button{
+        width: 360px;
+        min-height: 48px;
+        background: #174778;
+        border-radius: 5px;
+        color: #fff;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 24px;
+        margin-bottom: 26px;
+        cursor: pointer;
+    }
+    .in input{
+        width: 360px;
+        min-height: 48px;
+        border: 1px solid #C4C4C4; 
+        border-radius: 5px;
+        padding-left: 10px;
+        font-family: Inter;
+    
+    font-size: 14px;
+    line-height: 24px;
+     
+    
+    }
+
+.in label{
+    position: relative;
+    top: 17px;
+    left: 14px;
+
+    z-index: 99;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    margin: auto;
+    padding: 0;
+    overflow: hidden;
+    transform: translateY(20deg);
+
+     
+}
+   ::placeholder{
+    padding: 10px 20px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 24px;
+    background: transparent !important;
+
+    
+    }
+
+  .in svg{
+        position: relative;
+        font-size: 22px;
+        color:#E5E5E5;
+        top: -36px;
+        left: 324px;
+        background: transparent;
+    }
+
+    button{
+        width: 360px;
+        min-height: 48px;
+        background: #174778;
+        border-radius: 5px;
+        color: #fff;
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 24px;
+        margin-bottom: 26px;
+    }
+    
+
+
+}
+
+
 
 
 button:focus {
     outline: none;
+}
+@media (max-width: 400px) { 
+.in {
+    background: #fff !important;
+    width: 250px;
+    height: 60px;
+}
+form{
+    .in input{
+        width: 250px;
+        min-height: 35px;
+    }
+    button{
+        width: 250px;
+        min-height: 35px;
+        
+    }
+}
+
 }

@@ -7,8 +7,9 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
 import { Controller } from 'react-hook-form';
+import LockIcon from '@mui/icons-material/Lock';
 
-
+import LockOpenIcon from '@mui/icons-material/LockOpen';
 //Form
 
 import Box from '@mui/material/Box';
@@ -79,6 +80,7 @@ const Login = () => {
     const dispatch = useDispatch<AppDispatch>();
     const [email,setEmail] = useState<string>('');
     const [password,setPassword] = useState<string>('');
+    const [showPassword, setShowPassword] = useState<boolean>(false);
     // const { user } = useSelector((state: RootState) => ({
     //     user: state.Auth.user,
     // }));
@@ -110,12 +112,14 @@ const Login = () => {
         console.log(email, password);
     };
 
-
+    const showPasswordHandler =() => {
+        setShowPassword(!showPassword);
+    }
     
-
     return (
         <>
             {userLoggedIn || user ? <Redirect to={next ? next : '/'}></Redirect> : null}
+         
             
             <AuthLayout bottomLinks={<BottomLink />}>
             
@@ -149,7 +153,7 @@ const Login = () => {
                     onSubmit={onSubmit}
                     resolver={schemaResolver}
                 >
-                    <FormInput
+                    <FormInput{showPassword ? <VisibilityOff /> : <Visibility />  }
                         label={t('Email')}
                         type="text"
                         name="email"
@@ -178,61 +182,28 @@ const Login = () => {
                     </div>
                     
                 </VerticalForm> */}
-   <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
-    <Form   onSubmit={(e)=>onSubmit(e)}>
-      <Form.Group  >
-      <FormControl style={{marginBottom: "20px"}} sx={{  width: '45ch' }} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-email">E-mail</InputLabel>
-            <OutlinedInput
-            id="outlined-adornment-email"
-            type='text'
-             onChange={(e)=>setEmail(e.target.value)}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
                 
-
-                  edge="end"
-                >
-                  {/* {values.showPassword ? <VisibilityOff /> : <Visibility />} */}
-                  <MailOutlineIcon/>
-                </IconButton>
-              </InputAdornment>
-            }
-            label="E-mail"
-          />
-         </FormControl>
-             <FormControl sx={{ width: '45ch' }} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password" >Password</InputLabel>
-       
- 
-            <OutlinedInput
-            id="outlined-adornment-password"
-            type='password'
-            onChange={(e)=>setPassword(e.target.value)}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-      
-                  edge="end"
-                >
-                  {/* {values.showPassword ? <VisibilityOff /> : <Visibility />} */}
-                </IconButton>
-              </InputAdornment>
-            }
-            label="Password"
-          />
-           <div className="d-grid mb-0 mt-3 text-center">
-                        <Button style={{"background":'#174778', 'border':'none'}} type="submit" disabled={loading}>
+            <form className="form" onSubmit={(e)=>onSubmit(e)} >
+             <div className="in" style={{background: "transparent !important"}}>
+              <label htmlFor="E-mail">E-mail</label>
+              <input onChange={(e)=>setEmail(e.target.value)} type="text" placeholder="Enter your email number"/>
+                <MailOutlineIcon/>
+              </div>
+              <div className="in" style={{marginBottom: "20px",background: "transparent !important"}} >
+              <label htmlFor="E-mail">Password</label>
+              <input  onChange={(e)=>setPassword(e.target.value)} type={showPassword ? 'text' : 'password'} placeholder="Enter your password" />
+              { showPassword ?
+                <LockOpenIcon onClick={()=>setShowPassword(false)}/>:
+                <LockIcon onClick={()=>setShowPassword(true)}/>
+              
+                }
+              </div>
+              <FormInput label="Remember me" type="checkbox" name="checkbox" containerClass={'mb-3'} />
+              <button type="submit" disabled={loading}>
                             {t('Log In')}
-                        </Button>
-                    </div>
-        </FormControl>
-        </Form.Group>
-        </Form>
-        </Box>
+                        </button>
+            </form>
+   
         <div className='d-flex  mt-3  '>
        <img src={Goog} style={{height: "26px" , width: "26px", marginLeft: "150px", marginRight:"20px"}}/>
         <img src={Face} style={{height: "21px" , width: "21px",marginRight: "auto", borderRadius: "3px"}}/>

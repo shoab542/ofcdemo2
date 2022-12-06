@@ -56,3 +56,13 @@ line-height: 24px;
 }
 
 
+@media (max-width: 400px) { 
+    .loginp {
+        font-size: 10px;
+        line-height: 18px;
+    }
+    .loginh {
+        font-size: 25px;
+        line-height: 30px;
+    }
+ }

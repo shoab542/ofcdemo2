@@ -5,6 +5,8 @@
 .card {
     box-shadow: $card-box-shadow;
     margin-bottom: $grid-gutter-width;
+    padding-left: 50px;
+    background: #fff !important;
 }
 
 .card-drop {

@@ -61,3 +61,12 @@ body[data-layout-color="dark"] {
         color: var(--#{$variable-prefix}body-color) !important;
     }
 }
+
+
+@media (max-width: 576px) { 
+
+.text-center {
+    text-align: left !important;
+    padding-left: 66px;
+}
+ }

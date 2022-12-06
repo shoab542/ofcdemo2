@@ -10,14 +10,14 @@ const Footer = () => {
             <footer className="footer">
                 <div className="container-fluid">
                     <Row >
-                        <Col md={6}>
+                        <Col md={6} sm={6}>
                             <div className='d-flex left'>
                              <p style={{marginRight: "24px"}}>Privacy Policy</p>
                              <p>Terms of Use</p>
                             </div>
                         </Col>
 
-                        <Col md={6}>
+                        <Col md={6} sm={6}>
                             <div className="text-md-end footer-links d-none d-sm-block">
                             Copyright {currentYear} &copy; CCL. All rights reserved.
                             </div>

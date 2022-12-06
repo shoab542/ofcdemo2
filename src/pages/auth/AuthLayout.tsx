@@ -30,8 +30,8 @@ const AuthLayout = ({ helpText, bottomLinks, children, isCombineForm }: AccountL
             <div className="auth-fluid" style={{background: "#F5F6F8", marginTop: "50px"}}>
                 {/* Auth fluid left content */}
                 <Container>
-                <Row className="pr-0">
-               <Col lg={5} > <div className="auth-fluid-form-box">
+                <Row className="pr-0" style={{background:"#fff"}}>
+               <Col lg={5} md={5} sm={5}> <div className="auth-fluid-form-box">
                     <div className="align-items-center d-flex h-100">
                         <Card.Body>
                             {/* logo */}
@@ -64,10 +64,11 @@ const AuthLayout = ({ helpText, bottomLinks, children, isCombineForm }: AccountL
             
                <div className="auth-fluid-right text-center ml-4">
                 <Row className='mt-4'>
+                   <Col lg={1} md={1} ></Col>
                <Col lg={1}>
                <span />
                </Col >
-               <Col lg={9}>
+               <Col lg={8} md={8} className="mt-4">
                <h1>Client <br/> Satisfaction <br/> Review</h1> 
            
                <div className='bottom'>
@@ -78,7 +79,7 @@ const AuthLayout = ({ helpText, bottomLinks, children, isCombineForm }: AccountL
                </div>
                <img src={Avat} alt="" className='avater'/>
                </Col>
-               <Col lg={2}></Col>
+               <Col lg={2} md={2} ></Col>
                </Row>
                 {/* <div className="auth-user-testimonial">
                </div>    */}
